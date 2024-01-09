@@ -15,7 +15,7 @@ spec:
       containers:
         - name: webapp-container
           image: asoundmove/aicore-devopsproject-webapp:latest
-          imagePullPolicy: Always
+          imagePullPolicy: Always # not sure what impact this has on the azure pipeline
           ports:
             - containerPort: 5000
   strategy:

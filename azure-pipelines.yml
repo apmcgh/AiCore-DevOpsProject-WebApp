@@ -3,9 +3,11 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-pr:
-- '*'
+# Do not trigger on Pull Request creation
+# This setting is sneaky: it 'sticks' when removed
+pr: none
 
+# Only trigger once for each merge or individual (manual) commit on the main branch
 trigger:
   batch: 'true'
   branches:
@@ -36,6 +38,8 @@ steps:
     containerRegistryType: 'Container Registry'
     dockerRegistryEndpoint: 'apmc-docker'
 
+# Because were-use the 'latest' tag for new versions of the docker image,
+# 'apply' above will not deploy, so we need to 'rollout' as well.
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
