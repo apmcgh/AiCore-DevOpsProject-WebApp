@@ -15,7 +15,6 @@ spec:
       containers:
         - name: webapp-container
           image: asoundmove/aicore-devopsproject-webapp:latest
-          imagePullPolicy: Always
           ports:
             - containerPort: 5000
   strategy:
