@@ -3,6 +3,7 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+pr: none
 trigger:
   batch: 'true'
   branches:
@@ -33,13 +34,13 @@ steps:
     containerRegistryType: 'Container Registry'
     dockerRegistryEndpoint: 'apmc-docker'
 
-- task: Kubernetes@1
-  inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'aicore-apmc-aks'
-    namespace: 'default'
-    command: 'rollout'
-    arguments: 'restart deployment/webapp-deployment'
-    useConfigurationFile: false
-    containerRegistryType: 'Container Registry'
-    dockerRegistryEndpoint: 'apmc-docker'
+# - task: Kubernetes@1
+#   inputs:
+#     connectionType: 'Kubernetes Service Connection'
+#     kubernetesServiceEndpoint: 'aicore-apmc-aks'
+#     namespace: 'default'
+#     command: 'rollout'
+#     arguments: 'restart deployment/webapp-deployment'
+#     useConfigurationFile: false
+#     containerRegistryType: 'Container Registry'
+#     dockerRegistryEndpoint: 'apmc-docker'
