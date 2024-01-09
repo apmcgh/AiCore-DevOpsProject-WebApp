@@ -4,6 +4,7 @@
 # https://aka.ms/yaml
 
 pr: none
+
 trigger:
   batch: 'true'
   branches:
