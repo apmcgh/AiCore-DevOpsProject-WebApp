@@ -40,6 +40,7 @@ steps:
     namespace: 'default'
     command: 'rollout'
     arguments: 'restart deployment/webapp-deployment'
-    useConfigurationFile: false
+    useConfigurationFile: true
+    configuration: 'k8s-webapp/application-manifest.yaml'
     containerRegistryType: 'Container Registry'
     dockerRegistryEndpoint: 'apmc-docker'
