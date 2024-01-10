@@ -104,7 +104,6 @@ az aks get-credentials --resource-group aks-nw-rg --name terraform-aks-cluster-w
 I adapted the `nginx` sample deployment from a previous lesson.
 
 
-
 # Milestone 8 - Azure DevOps project
 
 In [My Azure DevOps account](https://dev.azure.com/apmcazure/), create project `AiCore--DevOps-Course`.
@@ -141,4 +140,11 @@ After this, I changed the `orders,html` page title to trigger the build, then ma
 Project settings ⇒ Service connections ⇒ New service connection ⇒ Kubernetes
 Select Azure, subscription, cluster and namespace.
 Give it a name, tick admin credentials and apply to all pipelines.
+
+
+# Milestone 9 - Monitoring
+
+## Enable container insights
+
+Azure portal ⇒ ... ⇒ AKS cluster ⇒ Monitoring ⇒ Configure ⇒ Configure (+wait)
 
