@@ -150,7 +150,7 @@ Azure portal ⇒ ... ⇒ AKS cluster ⇒ Monitoring ⇒ Configure ⇒ Configure 
 
 Cannot see any event recorded in the KubeEvents table, so:
 - I destroyed my cluster
-- Added a Log Analytics Contributor and Monitoring Metrics Publisher roles to my SP
+- Added a Log Analytics Contributor role to my SP
 - Re-created the cluster
 - Merged credentials on my dev host
 - Re-enabled insights & diagnostics
@@ -158,3 +158,17 @@ Cannot see any event recorded in the KubeEvents table, so:
 - Re-deployed the webapp (using the pipeline)
 
 Now I can see events in the KubeEvents table, but I still cannot see my pipeline deployment/rollout events!!!
+
+- I destroyed my cluster
+- Added a Monitoring Metrics Publisher role to my SP
+- Re-created the cluster
+- Merged credentials on my dev host
+- Re-enabled insights & diagnostics
+- Re-established the DevOps pipeline service connection to the cluster
+- Re-deployed the webapp (using the pipeline)
+
+I still cannot see my pipeline deployment/rollout events!!!
+
+The Monitoring Metrics Publisher role does not seem to have had any impact.
+
+In fact, maybe the rollout events belong to a different table?
