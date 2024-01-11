@@ -150,7 +150,7 @@ Azure portal ⇒ ... ⇒ AKS cluster ⇒ Monitoring ⇒ Configure ⇒ Configure 
 
 Cannot see any event recorded in the KubeEvents table, so:
 - I destroyed my cluster
-- Added a log analytics contributor role to my SP
+- Added a Log Analytics Contributor and Monitoring Metrics Publisher roles to my SP
 - Re-created the cluster
 - Merged credentials on my dev host
 - Re-enabled insights & diagnostics
