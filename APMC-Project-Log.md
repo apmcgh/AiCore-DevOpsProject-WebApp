@@ -148,3 +148,13 @@ Give it a name, tick admin credentials and apply to all pipelines.
 
 Azure portal ⇒ ... ⇒ AKS cluster ⇒ Monitoring ⇒ Configure ⇒ Configure (+wait)
 
+Cannot see any event recorded in the KubeEvents table, so:
+- I destroyed my cluster
+- Added a log analytics contributor role to my SP
+- Re-created the cluster
+- Merged credentials on my dev host
+- Re-enabled insights & diagnostics
+- Re-established the DevOps pipeline service connection to the cluster
+- Re-deployed the webapp (using the pipeline)
+
+Now I can see events in the KubeEvents table, but I still cannot see my pipeline deployment/rollout events!!!
