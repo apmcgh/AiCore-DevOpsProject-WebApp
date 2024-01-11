@@ -71,7 +71,8 @@ To run the application, you simply need to run the `app.py` script in this repos
 
 The web app is packaged as a docker image, available in my personal public github repo: `asoundmove/aicore-devopsproject-webapp:latest`.
 
-Packaging is currently done manually using `Dockerfile` and `docker build -t aicore-devopsproject-webapp .`.
+Packaging can be done manually using `Dockerfile` and `docker build -t aicore-devopsproject-webapp .`.
+See the pipeline section below for automation of this process.
 
 
 ### Sub-sections:
