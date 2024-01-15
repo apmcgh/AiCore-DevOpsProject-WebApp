@@ -172,3 +172,24 @@ I still cannot see my pipeline deployment/rollout events!!!
 The Monitoring Metrics Publisher role does not seem to have had any impact.
 
 In fact, maybe the rollout events belong to a different table?
+
+# Milstone 10 - Key Vault
+
+## Enable Managed Identity for AKS to access the Key Vault
+
+`az aks update --resource-group aks-nw-rg --name terraform-aks-cluster-webapp --enable-managed-identity`
+
+`az aks nodepool upgrade --resource-group aks-nw-rg --cluster-name terraform-aks-cluster-webapp --name default --node-image-only`
+
+This last command triggers a cluster restart. So I tested the webapp availability after the restart completed. Note that the service's LB external IP address remained the same.
+
+Check the identity created:
+
+`az aks show --resource-group aks-nw-rg --name terraform-aks-cluster-webapp --query identity`
+
+Assign it a role:
+
+`az role assignment create --assignee <principal-id> --role "Key Vault Secrets Officer" --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>`
+
+## Update the app to use managed secrets
+

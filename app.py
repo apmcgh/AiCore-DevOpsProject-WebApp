@@ -6,14 +6,24 @@ from sqlalchemy import create_engine
 import pyodbc
 import os
 
+from azure.keyvault.secrets import SecretClient
+from azure.identity import DefaultAzureCredential
+
+KeyVaultName = os.environ["KEY_VAULT_NAME"]
+KVUri = f"https://{KeyVaultName}.vault.azure.net"
+
+Credential = DefaultAzureCredential()
+KeyVault = SecretClient(vault_url=KVUri, credential=Credential)
+
+
 # Initialise Flask App
 app = Flask(__name__)
 
 # database connection 
-server = 'devops-project-server.database.windows.net'
-database = 'orders-db'
-username = 'maya'
-password = 'AiCore1237'
+server = KeyVault.get_secret("Webapp-DB-Server-Name")
+database = KeyVault.get_secret("Webapp-DB-Server-Database")
+username = KeyVault.get_secret("Webapp-DB-Server-Username")
+password = KeyVault.get_secret("Webapp-DB-Server-UserPassword")
 driver= '{ODBC Driver 18 for SQL Server}'
 
 # Create the connection string
@@ -73,6 +83,11 @@ def display_orders():
     session.close()
 
     return render_template('orders.html', orders=current_page_orders, page=page, total_pages=total_pages)
+
+# route to debug internals
+@app.route('/debug')
+def debug():
+    return f'{username}'
 
 # route to add orders
 @app.route('/add_order', methods=['POST'])
