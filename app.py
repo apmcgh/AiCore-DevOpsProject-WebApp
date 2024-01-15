@@ -20,10 +20,10 @@ KeyVault = SecretClient(vault_url=KVUri, credential=Credential)
 app = Flask(__name__)
 
 # database connection 
-server = KeyVault.get_secret("Webapp-DB-Server-Name")
-database = KeyVault.get_secret("Webapp-DB-Server-Database")
-username = KeyVault.get_secret("Webapp-DB-Server-Username")
-password = KeyVault.get_secret("Webapp-DB-Server-UserPassword")
+server = KeyVault.get_secret("Webapp-DB-Server-Name").value
+database = KeyVault.get_secret("Webapp-DB-Server-Database").value
+username = KeyVault.get_secret("Webapp-DB-Server-Username").value
+password = KeyVault.get_secret("Webapp-DB-Server-UserPassword").value
 driver= '{ODBC Driver 18 for SQL Server}'
 
 # Create the connection string
