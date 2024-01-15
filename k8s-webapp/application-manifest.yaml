@@ -15,6 +15,9 @@ spec:
       containers:
         - name: webapp-container
           image: asoundmove/aicore-devopsproject-webapp:latest
+          env:
+            - name: KEY_VAULT_NAME
+              value: "apmc-kv"
           imagePullPolicy: Always # not sure what impact this has on the azure pipeline
           ports:
             - containerPort: 5000
