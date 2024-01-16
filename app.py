@@ -12,7 +12,8 @@ from azure.identity import DefaultAzureCredential, ManagedIdentityCredential, Ch
 KeyVaultName = os.environ["KEY_VAULT_NAME"]
 KVUri = f"https://{KeyVaultName}.vault.azure.net"
 
-Credential = ChainedTokenCredential(ManagedIdentityCredential(client_id="096cc2ab-081c-4ee5-9c4d-b1db37374aba"), DefaultAzureCredential())
+Credential = ManagedIdentityCredential()
+#Credential = ChainedTokenCredential(ManagedIdentityCredential(client_id="096cc2ab-081c-4ee5-9c4d-b1db37374aba"), DefaultAzureCredential())
 KeyVault = SecretClient(vault_url=KVUri, credential=Credential)
 
 
