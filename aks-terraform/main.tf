@@ -9,12 +9,7 @@ terraform {
 
 provider "azurerm" {
   features {
-    # Relies on environment variables:
-    # - ARM_CLIENT_ID
-    # - ARM_CLIENT_SECRET
-    # - ARM_SUBSCRIPTION_ID
-    # - ARM_TENANT_ID
-    # Populated by the `secret.sh` script, not kept in the git repo
+    # Relies on `az login`
   }
 }
 
@@ -36,9 +31,6 @@ module "aks_cluster" {
   cluster_location           = "UK South"
   dns_prefix                 = "aks-webapp"
   kubernetes_version         = "1.28.3"
-
-  service_principal_client_id = var.client_id
-  service_principal_client_secret = var.client_secret
 
   # Input variables referencing outputs from the networking module
   resource_group_name         = module.networking.networking_resource_group_name

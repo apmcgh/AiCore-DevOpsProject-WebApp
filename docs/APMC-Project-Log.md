@@ -193,3 +193,17 @@ Assign it a role:
 
 ## Update the app to use managed secrets
 
+Hitting problems with "multiple" identities.
+Azure s not happy with the insight identities, preventing the use of the system assigned identity without specifying the client_id.
+
+- Destroy the cluster
+- Change the cluster definition to enable the system assigned identity
+- Re-create the cluster
+- Merge credentials on my dev host
+- Create the key vault
+- Assign key vault admin and secrets officer roles manually
+- Define the secrets
+- Do NOT re-enable insights & diagnostics
+- Re-establish the DevOps pipeline service connection to the cluster
+- Re-deploy the webapp (using the pipeline)
+
