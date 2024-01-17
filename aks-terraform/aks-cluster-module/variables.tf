@@ -21,14 +21,6 @@ variable "kubernetes_version" {
   # az aks get-versions -l 'UK South' --query='[values][*][*][version]'
 }
 
-variable "service_principal_client_id" {
-  type        = string
-}
-
-variable "service_principal_client_secret" {
-  type        = string
-}
-
 
 # Output variables from the networking module
 
@@ -51,8 +43,3 @@ variable "resource_group_name" {
   description = "Name of the Azure Resource Group for networking resources."
   type        = string
 }
-
-# variable "aks_nsg_id" {
-#   description = "ID of the Network Security Group (NSG) for AKS."
-#   type        = string
-# }
