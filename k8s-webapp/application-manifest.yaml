@@ -33,7 +33,8 @@ metadata:
   name: webapp-service
 spec:
   loadBalancerSourceRanges:
-    - 185.241.166.93/32
+    - 185.241.166.93/32   # Alain
+    - 84.71.90.20/32      # Patrick
   selector:
     app: webapp
   ports:
