@@ -60,6 +60,8 @@ To run the application, you simply need to run the `app.py` script in this repos
 
 ## CI/CD
 
+![DevOps Pipeline](docs/images/DevOps%20Pipeline%20Architecture.svg)
+
 ### Assumptions
 
 - You have an Azure account or access to a subscription.
@@ -67,7 +69,7 @@ To run the application, you simply need to run the `app.py` script in this repos
 - kubectl is installed and working on a dev host, e.g. local computer.
 
 
-### Containerisation
+### Containerisation (diagram, precursor to #4, 5)
 
 The web app is packaged as a docker image, available in my personal public github repo: `asoundmove/aicore-devopsproject-webapp:latest`.
 
@@ -77,10 +79,11 @@ See the pipeline section below for automation of this process.
 
 ### Sub-sections:
 
-- [IaC, Infrastructure as Code](docs/CourseNotes-IaC.md)
-- [WebApp: deployment, access, test and validation](docs/CourseNotes-WebApp.md)
-- [Azure Pipeline build and deployment](docs/CourseNotes-Pipeline.md)
-- [Cluster monitoring](docs/CourseNotes-Monitoring.md)
+- [IaC, Infrastructure as Code](docs/CourseNotes-IaC.md) (diagram, #1)
+- [WebApp: deployment, access, test and validation](docs/CourseNotes-WebApp.md) (diagram, #2)
+- [Azure Pipeline build and deployment](docs/CourseNotes-Pipeline.md) (diagram, #4, 5, 6)
+- [Cluster monitoring](docs/CourseNotes-Monitoring.md) (diagram, #7)
+- [Key Vault integration](docs/CourseNotes-KeyVault.md) (diagram, #3)
 
 
 ## Contributors 

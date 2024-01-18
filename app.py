@@ -7,16 +7,12 @@ import pyodbc
 import os
 
 from azure.keyvault.secrets import SecretClient
-from azure.identity import DefaultAzureCredential, ManagedIdentityCredential, ChainedTokenCredential
+from azure.identity import DefaultAzureCredential
 
 KeyVaultName = os.environ["KEY_VAULT_NAME"]
 KVUri = f"https://{KeyVaultName}.vault.azure.net"
 
 Credential = DefaultAzureCredential()
-#Credential = ManagedIdentityCredential()
-#Credential = ChainedTokenCredential(ManagedIdentityCredential(client_id="096cc2ab-081c-4ee5-9c4d-b1db37374aba"), DefaultAzureCredential())
-#Credential = ChainedTokenCredential(ManagedIdentityCredential(client_id="a271039d-0012-42ed-b839-b0c13951ab6d"), DefaultAzureCredential())
-#Credential = ChainedTokenCredential(ManagedIdentityCredential(), DefaultAzureCredential())
 KeyVault = SecretClient(vault_url=KVUri, credential=Credential)
 
 
@@ -88,10 +84,10 @@ def display_orders():
 
     return render_template('orders.html', orders=current_page_orders, page=page, total_pages=total_pages)
 
-# route to debug internals
-@app.route('/debug')
-def debug():
-    return f'{username}'
+# # route to debug internals
+# @app.route('/debug')
+# def debug():
+#     return f'{username}'
 
 # route to add orders
 @app.route('/add_order', methods=['POST'])
