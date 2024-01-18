@@ -4,6 +4,7 @@
 - [WebApp: deployment, access, test and validation](CourseNotes-WebApp.md)
 - [Azure Pipeline build and deployment](CourseNotes-Pipeline.md)
 - [Cluster monitoring](CourseNotes-Monitoring.md)
+- [Key Vault integration](CourseNotes-KeyVault.md)
 
 
 # Azure Pipeline build and deployment

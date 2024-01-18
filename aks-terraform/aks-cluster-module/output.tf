@@ -12,8 +12,3 @@ output "aks_kubeconfig" {
   description = "Kubeconfig file for accessing the AKS cluster."
   value       = azurerm_kubernetes_cluster.aks_cluster.kube_config_raw
 }
-
-output "aks_system_managed_id" {
-  description = "Principal Id of system assigned identity, to assign secrets officer role"
-  value = azurerm_kubernetes_cluster.aks_cluster.identity[0].principal_id
-}
